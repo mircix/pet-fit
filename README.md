@@ -4,6 +4,8 @@ A one-tap bookmark that makes the Productivity Entry Tool (a Power Apps canvas a
 
 **Setup page:** https://mircix.github.io/pet-fit/
 
+**Simple iPhone guide (to share):** https://mircix.github.io/pet-fit/iphone (shows a QR code when opened on a computer)
+
 ## The problem
 
 On a phone, the app lays itself out to the phone's narrow width. Headings, buttons and columns overlap,
@@ -48,7 +50,8 @@ shows a note pointing iPhone users to Options 1 and 2.
 
 ## Files
 
-- `pet-fit.user.js`: the userscript (Option 1).
+- `pet-fit.user.js`: the userscript (Option 1), named "PET Tool" in Userscripts since v1.1.
+- `iphone.html`: the short iPhone setup guide for other people (Userscripts + the script), with `img/qr-iphone.png`.
 - `open.html`: the one-link page (Option 3).
 - `index.html`: the setup page. The bookmark's source is in the `<script type="text/plain" id="pet-fit-src">`
   block, and the page turns it into the `javascript:` link and the Copy button.
