@@ -57,7 +57,8 @@ shows a note pointing iPhone users to Options 1 and 2.
 - `open.html` in the iPhone simulator's Safari: PET's prompt asks for third-party cookies (iPhone limitation).
 - `pet-fit.user.js`: on the real Power Apps phone screen (mobile emulation), it found and tapped "Continue in
   browser", and Power Apps moved on to sign-in. The viewport part is the bookmark's code, tested below.
-- Not yet tested: the Userscripts extension itself on a real iPhone.
+- `pet-fit.user.js` on a real iPhone (Safari + Userscripts, 2026-11-14): after a normal sign-in, PET fitted the
+  screen with nothing to tap.
 - Bookmark: real iPhone Safari engine (iOS 27 simulator, iPhone 18 Pro) on a stand-in page that lays itself out the
   way PET does. Before: 402 px wide, overlapping. After: 1280 px wide, zoomed to 0.31, nothing overlapping,
   location box on screen.
