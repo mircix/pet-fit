@@ -100,6 +100,8 @@
     display: inline-block; padding: 6px 14px; border-radius: 8px; background: var(--accent);
     color: var(--accent-ink); font-weight: 700; text-decoration: none;
   }
+  main a:not(.btn):not(.drag) { color: #0b5cad; font-weight: 600; }
+  @media (prefers-color-scheme: dark) { main a:not(.btn):not(.drag) { color: #8cc4ff; } }
   footer { padding: 4px 16px 32px; }
   footer p { margin: 0; }
 </style>
@@ -122,13 +124,18 @@
 
 <main class="wrap">
   <section class="card" style="border-color:var(--accent)">
-    <h2>Easiest: one link, no bookmark</h2>
-    <p style="margin:6px 0 12px">Opens PET already fitted to your screen. Sign in as normal and you're done.</p>
-    <a class="btn" href="open.html">Open PET Fit</a>
-    <p class="muted" style="margin:10px 0 0">The first time, it asks you to paste your PET link once. After that, it opens PET straight away. Save it to your Favourites so it's one tap. If sign-in doesn't work there, use the bookmark below instead.</p>
+    <h2>Automatic on iPhone (recommended)</h2>
+    <p style="margin:6px 0 4px">Set up once. After that, open PET in <b>Safari</b> and sign in as usual: it skips the "Continue in browser" screen and fits itself to your screen, with nothing to tap.</p>
+    <ol>
+      <li>Install <b>Userscripts</b> from the App Store: <a href="https://apps.apple.com/app/userscripts/id1463298887">get Userscripts</a>. It's an open-source Safari add-on that runs small scripts on the sites you choose.</li>
+      <li>Turn it on: <b>Settings → Apps → Safari → Extensions → Userscripts</b>. Switch it on and allow it on <b>All Websites</b>. Open the Userscripts app once, too.</li>
+      <li>In Safari, open the <a href="pet-fit.user.js"><b>PET Fit script</b></a>. Tap <b>aA</b> (or the extensions icon) in the address bar, then <b>Userscripts</b>, and confirm <b>Install</b>.</li>
+      <li>Done. Open PET in Safari as usual.</li>
+    </ol>
+    <p class="muted" style="margin:8px 0 0">Only works in Safari: Chrome on iPhone can't use add-ons. The script runs only on apps.powerapps.com and only changes how the page fits the screen.</p>
   </section>
 
-  <h2 style="margin:22px 4px 10px;font-size:17px;color:var(--muted)">Or use the PET Fit bookmark</h2>
+  <h2 style="margin:22px 4px 10px;font-size:17px;color:var(--muted)">No add-on? Use the PET Fit bookmark</h2>
 
   <section class="card">
     <p style="margin:0">On a phone, the Productivity Entry Tool (Power Apps) squeezes itself into the narrow screen, so everything overlaps and the location box ends up off the edge. <b>PET Fit</b> is a bookmark. Tap it while PET is open and the page is laid out like on a laptop, then shrunk to fit your screen.</p>
@@ -184,6 +191,11 @@
     <div class="tip"><span>🔄</span><span>Rotated the phone and it looks off? Tap <b>PET Fit</b> again.</span></div>
     <div class="tip"><span>↩️</span><span>To go back to normal, just reload the page.</span></div>
     <div class="tip"><span>✅</span><span>To check the bookmark works, tap it on this page. You'll get a message telling you to open PET first.</span></div>
+  </section>
+
+  <section class="card">
+    <h2 style="font-size:17px">One-link version (not for iPhone)</h2>
+    <p class="muted" style="margin:6px 0 10px"><a href="open.html">Open PET Fit</a> loads PET inside this site, already fitted. Microsoft's sign-in only works there when the browser allows third-party cookies. iPhones block them by default, so on an iPhone use one of the options above. It can work on Android and computers.</p>
   </section>
 
   <section class="card">
