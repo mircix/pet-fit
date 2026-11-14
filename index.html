@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PET Fit</title>
+<meta name="description" content="A one-tap bookmark that makes the Productivity Entry Tool (Power Apps) fit a phone screen.">
+<meta name="theme-color" content="#0b2a4a">
+<style>
+  :root {
+    --bg: #f4f2f7;
+    --card: #ffffff;
+    --ink: #1b2233;
+    --muted: #5b6478;
+    --line: #e2e0ea;
+    --brand: #0b2a4a;
+    --accent: #e8792b;
+    --accent-ink: #ffffff;
+    --ok: #1f7a4d;
+    --code-bg: #f1f0f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10131b;
+      --card: #181c27;
+      --ink: #e9ecf3;
+      --muted: #a2a9ba;
+      --line: #2a3040;
+      --brand: #0b2a4a;
+      --accent: #f08a3e;
+      --accent-ink: #1a0f05;
+      --ok: #4cc38a;
+      --code-bg: #11151e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  header {
+    background: var(--brand);
+    color: #fff;
+    padding: 28px 16px 24px;
+  }
+  header .wrap { display: flex; gap: 14px; align-items: center; }
+  .logo {
+    flex: none; width: 52px; height: 52px; border-radius: 14px;
+    background: var(--accent); display: grid; place-items: center;
+  }
+  h1 { margin: 0; font-size: 26px; letter-spacing: -0.01em; }
+  header p { margin: 2px 0 0; color: #c9d6e6; font-size: 15px; }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  main { padding: 16px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 16px; margin: 0 0 14px;
+  }
+  .step { display: flex; gap: 12px; align-items: baseline; margin: 0 0 8px; }
+  .num {
+    flex: none; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--brand); color: #fff; font-weight: 700; font-size: 14px;
+    display: grid; place-items: center; transform: translateY(5px);
+  }
+  @media (prefers-color-scheme: dark) { .num { background: #24406a; } }
+  h2 { margin: 0; font-size: 19px; }
+  p, li { color: var(--ink); }
+  .muted { color: var(--muted); font-size: 14px; }
+  ol { margin: 8px 0 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  b { font-weight: 650; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; padding: 0 20px; border-radius: 12px; border: 0;
+    background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 700;
+    text-decoration: none; cursor: pointer; width: 100%;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn.done { background: var(--ok); color: #fff; }
+  textarea {
+    width: 100%; margin-top: 10px; min-height: 84px; resize: vertical;
+    font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--muted); background: var(--code-bg);
+    border: 1px solid var(--line); border-radius: 10px; padding: 10px;
+  }
+  .tabs { display: flex; gap: 6px; margin: 12px 0 4px; flex-wrap: wrap; }
+  .tab {
+    flex: 1 1 auto; min-height: 40px; padding: 0 12px; border-radius: 10px;
+    border: 1px solid var(--line); background: transparent; color: var(--ink);
+    font: inherit; font-size: 15px; cursor: pointer;
+  }
+  .tab[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .panel[hidden] { display: none; }
+  .tip { display: flex; gap: 10px; margin: 8px 0; }
+  .tip span:first-child { flex: none; }
+  .drag {
+    display: inline-block; padding: 6px 14px; border-radius: 8px; background: var(--accent);
+    color: var(--accent-ink); font-weight: 700; text-decoration: none;
+  }
+  footer { padding: 4px 16px 32px; }
+  footer p { margin: 0; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo" aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.5"/>
+        <path d="M9.5 9 7.5 12l2 3M14.5 9l2 3-2 3"/>
+      </svg>
+    </div>
+    <div>
+      <h1>PET Fit</h1>
+      <p>Makes the Productivity Entry Tool fit your phone screen.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <p style="margin:0">On a phone, the Productivity Entry Tool (Power Apps) squeezes itself into the narrow screen, so everything overlaps and the location box ends up off the edge. <b>PET Fit</b> is a bookmark. Tap it while PET is open and the page is laid out like on a laptop, then shrunk to fit your screen.</p>
+    <p class="muted" style="margin:10px 0 0">It only changes how the page is displayed, on your phone. It doesn't see or send your sign-in or any of your entries.</p>
+  </section>
+
+  <section class="card">
+    <div class="step"><span class="num">1</span><h2>Copy the PET Fit code</h2></div>
+    <button class="btn" id="copy" type="button">Copy PET Fit code</button>
+    <textarea id="code" readonly aria-label="PET Fit bookmark code"></textarea>
+    <p class="muted" style="margin:6px 0 0">If the button doesn't copy, press and hold in the box, then Select All and Copy.</p>
+  </section>
+
+  <section class="card">
+    <div class="step"><span class="num">2</span><h2>Save it as a bookmark</h2></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-panel="safari">iPhone Safari</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="chrome">iPhone Chrome</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="android">Android</button>
+    </div>
+    <div class="panel" id="safari">
+      <ol>
+        <li>Bookmark this page: tap <b>Share</b> (or <b>⋯</b> then Share), then <b>Add Bookmark</b>. Name it <b>PET Fit</b> and tap <b>Save</b>.</li>
+        <li>Open <b>Bookmarks</b> (the book icon), tap <b>Edit</b>, then tap <b>PET Fit</b>.</li>
+        <li>Clear the address line and <b>paste</b> the code you copied. Tap <b>Done</b>.</li>
+      </ol>
+    </div>
+    <div class="panel" id="chrome" hidden>
+      <ol>
+        <li>Bookmark this page: tap <b>⋯</b>, then <b>Add to Bookmarks</b>.</li>
+        <li>Tap <b>⋯</b> → <b>Bookmarks</b>, press and hold the new bookmark, and choose <b>Edit Bookmark</b>.</li>
+        <li>Change the name to <b>PET Fit</b>, clear the URL and <b>paste</b> the code you copied. Tap <b>Done</b>.</li>
+      </ol>
+    </div>
+    <div class="panel" id="android" hidden>
+      <ol>
+        <li>In Chrome, tap the <b>☆</b> star to bookmark this page.</li>
+        <li>Tap <b>Edit</b> on the message that appears (or open Bookmarks and edit it).</li>
+        <li>Name it <b>PET Fit</b>, clear the URL and <b>paste</b> the code you copied. Save.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="step"><span class="num">3</span><h2>Use it</h2></div>
+    <ol>
+      <li>Open the Productivity Entry Tool as usual and sign in. If it asks, choose <b>Continue in browser</b>.</li>
+      <li><b>Safari:</b> open Bookmarks and tap <b>PET Fit</b>.<br>
+          <b>Chrome:</b> tap the address bar, type <b>PET Fit</b> and tap the bookmark that appears in the list (the one with the star).</li>
+      <li>The page lays itself out properly and fits your screen.</li>
+    </ol>
+    <div class="tip"><span>📱</span><span>Turn the phone <b>sideways</b> for bigger text, and pinch to zoom in on the part you need.</span></div>
+    <div class="tip"><span>🔄</span><span>Rotated the phone and it looks off? Tap <b>PET Fit</b> again.</span></div>
+    <div class="tip"><span>↩️</span><span>To go back to normal, just reload the page.</span></div>
+    <div class="tip"><span>✅</span><span>To check the bookmark works, tap it on this page. You'll get a message telling you to open PET first.</span></div>
+  </section>
+
+  <section class="card">
+    <h2 style="font-size:17px">On a computer?</h2>
+    <p class="muted" style="margin:6px 0 0">You don't need it there, but you can drag this button to your bookmarks bar: <a class="drag" id="drag" href="#">PET Fit</a></p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p class="muted">PET Fit isn't made by Microsoft or the PET team. It just changes how the page fits your screen.</p>
+</footer>
+
+<!-- The bookmark's code. Written without // comments so it survives being pasted as one line. -->
+<script type="text/plain" id="pet-fit-src">
+(function () {
+  var W = 1280;
+  if (!/(^|\.)powerapps\.com$/.test(location.hostname)) {
+    alert('PET Fit is installed. Open the Productivity Entry Tool first, then tap PET Fit.');
+    return;
+  }
+  function deviceWidth() {
+    var s = screen;
+    var land = (s.orientation && /landscape/.test(s.orientation.type)) || Math.abs(window.orientation || 0) === 90;
+    return land ? Math.max(s.width, s.height) : Math.min(s.width, s.height);
+  }
+  function content() {
+    var z = Math.min(1, deviceWidth() / W).toFixed(3);
+    return 'width=' + W + ', initial-scale=' + z + ', minimum-scale=' + z + ', maximum-scale=5, user-scalable=yes';
+  }
+  function apply() {
+    var c = content();
+    var ms = document.querySelectorAll('meta[name="viewport"]');
+    if (!ms.length) {
+      var m = document.createElement('meta');
+      m.name = 'viewport';
+      document.head.appendChild(m);
+      ms = [m];
+    }
+    for (var i = 0; i < ms.length; i++) {
+      if (ms[i].getAttribute('content') !== c) ms[i].setAttribute('content', c);
+    }
+  }
+  apply();
+  if (!window.__petFit) {
+    window.__petFit = new MutationObserver(apply);
+    window.__petFit.observe(document.head, { childList: true, subtree: true, attributes: true, attributeFilter: ['content'] });
+    window.addEventListener('orientationchange', function () { setTimeout(apply, 300); });
+  }
+  setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 400);
+})();
+</script>
+<script>
+  (function () {
+    var src = document.getElementById('pet-fit-src').textContent;
+    var oneLine = src.replace(/\s*\n\s*/g, ' ').trim();
+    var bookmarklet = 'javascript:' + encodeURIComponent(oneLine);
+
+    var box = document.getElementById('code');
+    box.value = bookmarklet;
+    document.getElementById('drag').href = bookmarklet;
+
+    var copy = document.getElementById('copy');
+    copy.addEventListener('click', function () {
+      function done() {
+        copy.textContent = 'Copied ✓';
+        copy.classList.add('done');
+        setTimeout(function () { copy.textContent = 'Copy PET Fit code'; copy.classList.remove('done'); }, 2500);
+      }
+      function fallback() {
+        box.focus();
+        box.select();
+        box.setSelectionRange(0, box.value.length);
+        try { if (document.execCommand('copy')) done(); } catch (e) {}
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(bookmarklet).then(done, fallback);
+      } else {
+        fallback();
+      }
+    });
+
+    var tabs = document.querySelectorAll('.tab');
+    function show(name) {
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.panel === name)); });
+      document.querySelectorAll('.panel').forEach(function (p) { p.hidden = p.id !== name; });
+    }
+    tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.dataset.panel); }); });
+
+    var ua = navigator.userAgent;
+    if (/Android/i.test(ua)) show('android');
+    else if (/CriOS/i.test(ua)) show('chrome');
+  })();
+</script>
+</body>
+</html>
