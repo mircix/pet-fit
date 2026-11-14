@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PET Tool for iPhone</title>
+<meta name="description" content="Make the Productivity Entry Tool (Power Apps) fit your iPhone screen in Safari. Free, about two minutes to set up.">
+<meta name="theme-color" content="#0b2a4a">
+<link rel="icon" href="img/pet-tool-256.png">
+<link rel="apple-touch-icon" href="img/pet-tool-256.png">
+<meta property="og:title" content="PET Tool for iPhone">
+<meta property="og:description" content="Make the Productivity Entry Tool fit your iPhone screen in Safari.">
+<meta property="og:image" content="https://mircix.github.io/pet-fit/img/pet-tool-256.png">
+<style>
+  :root {
+    --bg: #f4f2f7; --card: #ffffff; --ink: #1b2233; --muted: #5b6478; --line: #e2e0ea;
+    --brand: #0b2a4a; --accent: #e8792b; --accent-ink: #ffffff; --ok: #1f7a4d; --link: #0b5cad;
+    --chip: #eef0f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10131b; --card: #181c27; --ink: #e9ecf3; --muted: #a2a9ba; --line: #2a3040;
+      --accent: #f08a3e; --accent-ink: #1a0f05; --ok: #4cc38a; --link: #8cc4ff; --chip: #222838;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  header { background: var(--brand); color: #fff; padding: calc(24px + env(safe-area-inset-top)) 16px 22px; }
+  header .wrap { display: flex; gap: 14px; align-items: center; }
+  header img { width: 58px; height: 58px; border-radius: 14px; flex: none; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+  h1 { margin: 0; font-size: 25px; letter-spacing: -0.01em; line-height: 1.2; }
+  header p { margin: 3px 0 0; color: #c9d6e6; font-size: 15px; }
+  main { padding: 16px 16px calc(24px + env(safe-area-inset-bottom)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 16px; margin: 0 0 14px; }
+  .step { display: flex; gap: 12px; align-items: center; margin: 0 0 6px; }
+  .num {
+    flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: #fff;
+    font-weight: 700; font-size: 15px; display: grid; place-items: center;
+  }
+  @media (prefers-color-scheme: dark) { .num { background: #24406a; } }
+  h2 { margin: 0; font-size: 19px; line-height: 1.3; }
+  p { margin: 8px 0 0; }
+  .muted { color: var(--muted); font-size: 15px; }
+  .path { background: var(--chip); border-radius: 6px; padding: 1px 6px; font-weight: 600;
+          -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .path span { white-space: nowrap; }
+  ol { margin: 8px 0 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+    min-height: 50px; margin-top: 12px; padding: 0 18px; border-radius: 13px;
+    background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none;
+  }
+  .btn.alt { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn:active { transform: scale(0.98); }
+  .ok { color: var(--ok); font-weight: 700; }
+  a:not(.btn) { color: var(--link); font-weight: 600; }
+  #desktop { text-align: center; }
+  #desktop img { width: 200px; height: 200px; image-rendering: pixelated; border-radius: 12px; background: #fff; padding: 10px; margin-top: 10px; }
+  #desktop code { display: block; margin-top: 8px; font-size: 15px; color: var(--muted); word-break: break-all; }
+  [hidden] { display: none !important; }
+  footer { padding: 0 16px calc(28px + env(safe-area-inset-bottom)); }
+  footer p { margin: 0 0 8px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <img src="img/pet-tool-256.png" alt="">
+    <div>
+      <h1>PET Tool for iPhone</h1>
+      <p>Makes the Productivity Entry Tool fit your iPhone screen in Safari.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card" id="desktop" hidden>
+    <h2>Open this page on your iPhone</h2>
+    <p class="muted">Scan with the iPhone camera, or send yourself this link.</p>
+    <img src="img/qr-iphone.png" alt="QR code for mircix.github.io/pet-fit/iphone" width="200" height="200">
+    <code>mircix.github.io/pet-fit/iphone</code>
+  </section>
+
+  <section class="card" id="notSafari" hidden>
+    <h2>Open this page in Safari</h2>
+    <p class="muted">This only works in Safari. Chrome and other browsers on iPhone can't use add-ons. Copy this page's address and open it in Safari.</p>
+  </section>
+
+  <section class="card">
+    <p style="margin:0">On an iPhone, PET squeezes into the narrow screen and the boxes overlap. This sets it up once so that every time you open PET in Safari, it skips the <b>Continue in browser</b> page and fits the screen by itself. It's free and takes about two minutes.</p>
+  </section>
+
+  <section class="card">
+    <div class="step"><span class="num">1</span><h2>Get the free Userscripts app</h2></div>
+    <p class="muted">An open-source Safari add-on that runs small scripts like this one.</p>
+    <a class="btn" href="https://apps.apple.com/app/userscripts/id1463298887">Get Userscripts</a>
+  </section>
+
+  <section class="card">
+    <div class="step"><span class="num">2</span><h2>Switch it on</h2></div>
+    <ol>
+      <li>Open <span class="path"><span>Settings →</span> <span>Apps →</span> <span>Safari →</span> <span>Extensions →</span> <span>Userscripts</span></span>.</li>
+      <li>Turn on <b>Allow Extension</b>.</li>
+      <li>Set websites to <b>Allow</b> (choose <b>All Websites</b> if it asks).</li>
+      <li>Open the <b>Userscripts</b> app once, then come back here.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <div class="step"><span class="num">3</span><h2>Add the PET Tool script</h2></div>
+    <ol>
+      <li>Tap the button below. A page of code opens; that's expected.</li>
+      <li>Tap the menu button at the left of Safari's address bar (it shows <b>aA</b> on older iPhones).</li>
+      <li>Tap <b>Userscripts</b>, then <b>Install</b>.</li>
+    </ol>
+    <a class="btn" href="pet-fit.user.js">Add PET Tool script</a>
+  </section>
+
+  <section class="card">
+    <div class="step"><span class="num">4</span><h2>Open PET in Safari</h2></div>
+    <p>Open the Productivity Entry Tool the way you normally do and sign in. <span class="ok">It fits the screen by itself.</span></p>
+    <ul class="muted">
+      <li>Pinch to zoom in on the part you're filling in.</li>
+      <li>Turn the phone sideways for bigger text.</li>
+      <li>To switch it off: Safari menu → <b>Userscripts</b> → turn off <b>PET Tool</b>.</li>
+      <li>Updates arrive automatically.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 style="font-size:17px">Is it safe?</h2>
+    <p class="muted">The script only runs on Power Apps (apps.powerapps.com) and only changes how the page fits the screen. It doesn't see, store or send your sign-in or your entries. You can read every line of it with the button in step 3.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>No add-on wanted? The <a href="./">PET Fit page</a> has a one-tap bookmark instead.</p>
+</footer>
+
+<script>
+(function () {
+  var ua = navigator.userAgent;
+  var iOS = /iP(hone|od|ad)/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!iOS) { document.getElementById('desktop').hidden = false; return; }
+  // Chrome, Firefox, Edge etc. on iPhone identify themselves; only Safari can use the add-on.
+  if (/CriOS|FxiOS|EdgiOS|OPiOS|GSA\//.test(ua)) document.getElementById('notSafari').hidden = false;
+})();
+</script>
+</body>
+</html>

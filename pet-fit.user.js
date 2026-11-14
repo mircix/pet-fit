@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         PET Fit
-// @description  Automatically fits the Productivity Entry Tool (Power Apps) to a phone screen.
-// @version      1.0
+// @name         PET Tool
+// @description  Fits the Productivity Entry Tool (Power Apps) to a phone screen and skips the "Continue in browser" page.
+// @version      1.1
 // @match        https://apps.powerapps.com/*
 // @run-at       document-end
 // @noframes
