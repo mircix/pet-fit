@@ -18,7 +18,11 @@ viewport change as the bookmark. You sign in to PET normally in Safari (first-pa
 cookies are needed. Install it by opening https://mircix.github.io/pet-fit/pet-fit.user.js in Safari and
 choosing Install from the Userscripts extension menu.
 
-## Option 2: the bookmark
+## Option 2: the bookmark (also the way to do it in Chrome on iPhone)
+
+Chrome on iPhone can't run add-ons, so Option 1 can't work there. In Chrome, run the bookmark from the address
+bar (type "PET Fit", tap the bookmark). Adding `&skipMobileRedirect=1` to the PET link skips Power Apps'
+"Open the app / Continue in browser" screen (checked with phone emulation: it went straight to Microsoft sign-in).
 
 Tapped while the app is open, the bookmark changes the page's viewport to 1280 px wide (laptop width) and
 sets the zoom so that width fits the screen. The app then lays itself out as it does on a laptop, and the
